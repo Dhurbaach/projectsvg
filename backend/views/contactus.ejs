@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link rel="icon" type="image/x-icon" href="/images/favion.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link rel="stylesheet" href="/stylesheets/contactus.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+ 
+  <%- include('partials/header') %>
+  <section id="section-wrapper">
+    <div class="box-wrapper">
+      <div class="info-wrap">
+        <h2 class="info-title">Contact Information</h2>
+        <h3 class="info-sub-title">Fill up the form and our Team will get back to you within 24 hours</h3>
+        <ul class="info-details">
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <span>Phone:</span>
+            <a href="tel:+9779863666670">+977 9863666670</a>
+          </li>
+          <li>
+            <i class="fas fa-paper-plane"></i>
+            <span>Email:</span>
+            <a href="mailto:psubas777@gmail.com">psubas777@gmail.com</a>
+          </li>
+          <li>
+            <i class="fas fa-globe website"></i>
+            <span>Website:</span>
+            <a href="/">BhatBhatey.com</a>
+          </li>
+        </ul>
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com/amrit.acharya.908132"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="https://www.facebook.com/amrit.acharya.908132"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/subas-hamal-88242b283/"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+      </div>
+      <div class="form-wrap">
+        <form id="contactForm" method="post" action="/contactus">
+          <h2 class="form-title">Send us a message</h2>
+          <div class="form-fields">
+            <div class="form-group">
+              <input type="text" class="fname" id="fname" name="firstname" placeholder="First Name" required />
+            </div>
+            <div class="form-group">
+              <input type="text" class="lname" id="lname" name="lastname" placeholder="Last Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" class="email" id="email" name="email" placeholder="Mail" required />
+            </div>
+            <div class="form-group">
+              <input type="number" class="phone" id="phone" name="phone" placeholder="Phone" required />
+            </div>
+            <div class="form-group">
+              <textarea name="message" id="message" placeholder="Write your message" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

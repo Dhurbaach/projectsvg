@@ -1,0 +1,270 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+* {
+  
+  box-sizing: border-box;
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+ 
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+.topic{
+  margin-top:77px;
+  margin-left: 100px;
+  text-align: center;
+ 
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f8f9;
+ 
+  padding: 12px 50px;
+}
+.header-btn {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.logo img {
+  width: 90px;
+  height: 50px;
+}
+.nav-menu {
+  display: flex;
+}
+.nav-menu .nav-item {
+  margin-left: -15px;
+  list-style: none;
+  color:black;
+  position: relative;
+}
+.nav-menu a {
+  font-size: 1rem;
+  padding: 10px 20px;
+  color: black;
+  font-weight: 500;
+}
+.navbar a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: #fe5b3d;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transition: 0.5s;
+}
+.nav-menu a:hover::after {
+  width: 100%;
+}
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  z-index: 10001;
+}
+.header-btn a {
+  padding: 10px 20px;
+  font-weight: 500;
+}
+.header-btn .log-in {
+  background-color: #474fa0;
+  color: white;
+  border-radius: 0.5rem;
+}
+.header-btn .log-in:hover {
+  background-color: green;
+}
+.header-btn .sign-up:hover {
+  text-decoration: underline;
+}
+.firstpage {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+.slider {
+  margin: 0;
+  width: 100%;
+
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  border: 1px solid #ccc;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+  margin-top: 75px;
+  min-width: 100%;
+}
+
+img {
+  margin-left: 0;
+  width: 100%;
+  height: 660px;
+  object-fit: cover;
+}
+.ride {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+}
+.copyright {
+  font-size: 12px;
+  color: grey;
+  line-height: 1.6;
+  margin: 10px 10px;
+}
+.icon{
+  display:none;
+}
+
+.bodyitem{
+  background-color: whitesmoke;
+}
+.questions{
+  font-size:20px;
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 5rem;
+      flex-direction: column;
+      /* background-color: #fff; */
+      background-color: #222;
+      /* width: 30%; */
+      height:89%;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow:
+          0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .nav-link {
+      color: #fff;
+     
+      margin: 0;
+  }
+
+  .nav-menu .nav-item {
+    text-align:center;
+    color:white;
+   
+  }
+  .nav-menu.active {
+   
+      left: 0;
+  }
+  .nav-menu a {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 500;
+    
+  }
+
+  .nav-item {
+    
+      margin: 2.8rem 0;
+  }
+
+  .icon {
+   
+   
+      display: block;
+      cursor: pointer;
+  }
+
+  .icon.active .bar:nth-child(2) {
+      opacity: 0;
+  }
+
+  .icon.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  .icon.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+  }
+
+}
+
+
+
+/* @media screen and (max-width: 685px) {
+  .navbar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    top: -20px;
+    //width: 100%;
+    transition: all ease-in-out 0.4s;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 3rem 0 0.5rem;
+  }
+  .navbar ul li {
+    text-align: center;
+  }
+  .sign-up {
+    display: none;
+  }
+  .navbar:active {
+    top: 0;
+  }
+  .header-btn .log-in:hover {
+    background-color: green;
+  } */
+
+/* @media screen and (max-width: 600px) {
+  .navbar a:not(:first-child) {
+    display: none;
+  }
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    position: relative;
+  }
+  .navbar a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+} */
+
