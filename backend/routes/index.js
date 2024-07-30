@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Contact=require('../models/contactinfo');
-const User=require('../models/user');
-const Rentinfo=require('../models/rentalinfo');
+const Contact = require('../models/contactinfo');
+const User = require('../models/user');
+const Rentinfo = require('../models/rentalinfo');
+
 
 // Home Route
 router.get('/', (req, res) => {
@@ -27,7 +28,7 @@ router.get('/ride', (req, res) => {
 //booknow
 router.get('/booknow', (req, res) => {
   res.render('booknow');
-  });
+});
 
 // FAQs Route
 router.get('/faqs', (req, res) => {
@@ -65,15 +66,15 @@ router.post('/contactus', async (req, res) => {
 
 //rentnow post route
 router.post('/submit_rental', async (req, res) => {
-  const { starttime,endtime,name,address,email,phone,district } = req.body;
+  const { starttime, endtime, name, address, email, phone, district } = req.body;
 
   // Check if all required fields are provided
-  if (!starttime||!endtime||!name||!address||!email||!phone||!district) {
+  if (!starttime || !endtime || !name || !address || !email || !phone || !district) {
     return res.status(400).render('booknow', { error: "All fields are required." });
   }
 
   try {
-    const rentdata = new Rentinfo({  starttime,endtime,name,address,email,phone,district });
+    const rentdata = new Rentinfo({ starttime, endtime, name, address, email, phone, district });
     await rentdata.save();
     res.render('index', { message: "Your bike has been booked successfully!!!" });
   } catch (err) {
@@ -105,19 +106,30 @@ router.post('/login', async (req, res) => {
 //signup route
 router.post('/signup', async (req, res) => {
   try {
-      const data = req.body // Assuming the request body contains the person data
-      // Create a new user document using the Mongoose model
-      const newUser = new User(data);
+    const { email, password } = req.body;
 
-      // Save the new user to the database
-      const response = await newUser.save();
-      console.log('data saved');
-      res.render('login2', { message: "Saved successfully!!!" });
+    // Check if email and password are provided
+    if (!email || !password) {
+      return res.json({ success: false, message: "Email and password are required." });
+    }
+
+    // Create a new user document using the Mongoose model
+    const newUser = new User({ email, password });
+
+    // Save the new user to the database
+    await newUser.save();
+    console.log('Data saved');
+
+    // Respond with success message
+    res.json({ success: true, message: "Signup successful!" });
+
+    // Optionally, you can render a view instead of sending JSON
+    res.render('login2', { message: "Saved successfully!!!" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-  catch (err) {
-      console.log(err);
-      res.status(500).json({ error: 'Internal Server Error' });
-  }
-})
+});
+
 
 module.exports = router;

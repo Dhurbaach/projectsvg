@@ -98,6 +98,7 @@ ul a:hover::after {
   border: 1px solid #ccc;
   transition: transform 0.8s ease-in-out;
 }
+
 .looking {
   background-color: #f4f4f4;
   margin-top: 10px;
@@ -112,8 +113,18 @@ ul a:hover::after {
 img {
   margin-left: 0;
   width: 100%;
-  height: 615px;
+  height: 430px;
   object-fit: cover;
+}
+.text-overlay {
+  position: absolute;
+  font-weight: bold;
+  bottom: 130px;
+  left: 20px;
+  color: white;
+  font-size: 100px;
+  padding: 10px;
+  border-radius: 5px;
 }
 .ride {
   text-align: center;
